@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Doctor from './components/Doctor';
+import DoctorList from './components/DoctorList';
+import Login from './components/Login';
+import Register from './components/Register';
+import AboutUs from './components/AboutUs';
+import {Routes, Route} from  'react-router-dom';
+import Policy from './components/Policy';
+import Index from './components/Index';
 
 function App() {
+  const doctors = [
+    {
+      "img": "",
+      "name": "doc1",
+      "specialty": "couples"
+    },
+    {
+      "img": "",
+      "name": "doc2",
+      "specialty": "kids"
+    }
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="doctors" element={<DoctorList doctors={doctors} />} />
+        <Route path="doctors/:id" element={<Doctor />} />
+        <Route path="register" element={<Register />} />
+        <Route path="login" element={<Login />} />
+        <Route path="aboutus" element={<AboutUs />} />
+        <Route path="policy" element={<Policy />} />
+      </Routes>
     </div>
   );
 }
