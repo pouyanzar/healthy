@@ -1,0 +1,16 @@
+.App {
+}
+
+.profile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  &-img {
+    width: 350px;
+    height: 350px;
+  }
+  &-title {
+  }
+}
+
